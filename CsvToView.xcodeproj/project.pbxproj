@@ -13,6 +13,10 @@
 		EBF86D342C747253001828A8 /* ImmersiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF86D332C747253001828A8 /* ImmersiveView.swift */; };
 		EBF86D362C747255001828A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBF86D352C747255001828A8 /* Assets.xcassets */; };
 		EBF86D392C747255001828A8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBF86D382C747255001828A8 /* Preview Assets.xcassets */; };
+		EBF86D412C747288001828A8 /* bach-menuet.midi in Resources */ = {isa = PBXBuildFile; fileRef = EBF86D402C747288001828A8 /* bach-menuet.midi */; };
+		EBF86D432C74728E001828A8 /* notes_minuet_utf8_encoded.csv in Resources */ = {isa = PBXBuildFile; fileRef = EBF86D422C74728E001828A8 /* notes_minuet_utf8_encoded.csv */; };
+		EBF86D452C74729C001828A8 /* CsvDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF86D442C74729C001828A8 /* CsvDataHandler.swift */; };
+		EBF86D472C74A519001828A8 /* PlayDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF86D462C74A519001828A8 /* PlayDataHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		EBF86D352C747255001828A8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EBF86D382C747255001828A8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EBF86D3A2C747255001828A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EBF86D402C747288001828A8 /* bach-menuet.midi */ = {isa = PBXFileReference; lastKnownFileType = audio.midi; path = "bach-menuet.midi"; sourceTree = SOURCE_ROOT; };
+		EBF86D422C74728E001828A8 /* notes_minuet_utf8_encoded.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = notes_minuet_utf8_encoded.csv; sourceTree = SOURCE_ROOT; };
+		EBF86D442C74729C001828A8 /* CsvDataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CsvDataHandler.swift; sourceTree = "<group>"; };
+		EBF86D462C74A519001828A8 /* PlayDataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayDataHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,8 +66,12 @@
 		EBF86D2A2C747253001828A8 /* CsvToView */ = {
 			isa = PBXGroup;
 			children = (
+				EBF86D402C747288001828A8 /* bach-menuet.midi */,
+				EBF86D422C74728E001828A8 /* notes_minuet_utf8_encoded.csv */,
 				EBF86D2F2C747253001828A8 /* CsvToViewApp.swift */,
 				EBF86D312C747253001828A8 /* ContentView.swift */,
+				EBF86D442C74729C001828A8 /* CsvDataHandler.swift */,
+				EBF86D462C74A519001828A8 /* PlayDataHandler.swift */,
 				EBF86D332C747253001828A8 /* ImmersiveView.swift */,
 				EBF86D352C747255001828A8 /* Assets.xcassets */,
 				EBF86D3A2C747255001828A8 /* Info.plist */,
@@ -145,8 +157,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBF86D432C74728E001828A8 /* notes_minuet_utf8_encoded.csv in Resources */,
 				EBF86D392C747255001828A8 /* Preview Assets.xcassets in Resources */,
 				EBF86D362C747255001828A8 /* Assets.xcassets in Resources */,
+				EBF86D412C747288001828A8 /* bach-menuet.midi in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,9 +171,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBF86D472C74A519001828A8 /* PlayDataHandler.swift in Sources */,
 				EBF86D322C747253001828A8 /* ContentView.swift in Sources */,
 				EBF86D302C747253001828A8 /* CsvToViewApp.swift in Sources */,
 				EBF86D342C747253001828A8 /* ImmersiveView.swift in Sources */,
+				EBF86D452C74729C001828A8 /* CsvDataHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
