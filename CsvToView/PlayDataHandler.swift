@@ -14,7 +14,8 @@ struct Playing {
 }
 
 struct PlayMIDIData {
-    var midiNoteData: Int
+    var noteNumber: Int
+    var noteName: String
     var playing: [Playing]
 }
 
@@ -47,12 +48,17 @@ class PlayDataHandler :Identifiable{
                 return
             }
             
+            guard let noteName = row["Note Name"] as? String else {
+                print("Note Name が String にキャストできませんでした。")
+                return
+            }
+            
             let playing = Playing(onsetTime: onsetTime, duration: duration)
             
-            if let index = playMIDIDatas.firstIndex(where: { $0.midiNoteData == currentMidiNoteNumber }) {
+            if let index = playMIDIDatas.firstIndex(where: { $0.noteNumber == currentMidiNoteNumber }) {
                 playMIDIDatas[index].playing.append(playing)
             } else {
-                let playMIDIData = PlayMIDIData(midiNoteData: currentMidiNoteNumber, playing: [playing])
+                let playMIDIData = PlayMIDIData(noteNumber: currentMidiNoteNumber, noteName: noteName, playing: [playing])
                 playMIDIDatas.append(playMIDIData)
             }
             
@@ -89,7 +95,7 @@ class PlayDataHandler :Identifiable{
                 }
             }
             if playing.count > 0 {
-                resultPlayMIDIDatas.append(PlayMIDIData(midiNoteData: playMIDIData.midiNoteData, playing: playing))
+                resultPlayMIDIDatas.append(PlayMIDIData(noteNumber: playMIDIData.noteNumber, noteName: playMIDIData.noteName, playing: playing))
             }
         }
         
@@ -102,7 +108,7 @@ class PlayDataHandler :Identifiable{
     
     func printPlayMIDIDatas() {
         for playMIDIData in playMIDIDatas {
-            print("midiNoteNumber: \(playMIDIData.midiNoteData)")
+            print("midiNoteNumber: \(playMIDIData.noteNumber)\t noteName: \(playMIDIData.noteName)")
             for playing in playMIDIData.playing {
                 // end time は 小数点 4桁で四捨五入
                 print("start poke : \(playing.onsetTime)\t end poke : \(round((playing.onsetTime + playing.duration)*1000)/1000)\t duration : \(playing.duration)")

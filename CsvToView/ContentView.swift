@@ -63,6 +63,5 @@ struct ContentView: View {
 }
 
 #Preview(windowStyle: .automatic) {
-    @State var playMIDIDatas = [PlayMIDIData(midiNoteData: 60, playing: [Playing(onsetTime: 0.0, duration: 1.0)])]
     ContentView()
 }

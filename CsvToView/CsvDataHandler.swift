@@ -26,7 +26,7 @@ public class CsvDataHandler {
         }
 
         do {
-            dataFrame = try DataFrame(contentsOfCSVFile: path, columns: ["ID", "Onset Time", "Duration", "MIDI Note Number"])
+            dataFrame = try DataFrame(contentsOfCSVFile: path, columns: ["ID", "Onset Time", "Duration", "MIDI Note Number","Note Name"])
         } catch {
             print("エラー: \(error)")
             return
