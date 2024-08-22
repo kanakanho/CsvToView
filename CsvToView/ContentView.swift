@@ -35,7 +35,7 @@ struct ContentView: View {
                             .glassBackgroundEffect()
                     }
                     .navigationTitle("Air Piano")
-                }
+                }g
             }
             .onChange(of: showImmersiveSpace) { _, newValue in
                 Task {
