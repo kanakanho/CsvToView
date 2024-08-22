@@ -1,5 +1,5 @@
 //
-//  PlayDataHandler.swift
+//  NotesDataHandler.swift
 //  CsvToView
 //
 //  Created by blue ken on 2024/08/20.
@@ -13,14 +13,14 @@ struct Playing {
     var duration: Double
 }
 
-struct PlayMIDIData {
+struct NoteData {
     var noteNumber: Int
     var noteName: String
     var playing: [Playing]
 }
 
-class PlayDataHandler :Identifiable{
-    var playMIDIDatas: [PlayMIDIData] = []
+struct NotesDataHandler {
+    var MIDIDatas: [NoteData] = []
     
     var isPlaying = false
     var startTime: Date?
@@ -55,59 +55,59 @@ class PlayDataHandler :Identifiable{
             
             let playing = Playing(onsetTime: onsetTime, duration: duration)
             
-            if let index = playMIDIDatas.firstIndex(where: { $0.noteNumber == currentMidiNoteNumber }) {
-                playMIDIDatas[index].playing.append(playing)
+            if let index = MIDIDatas.firstIndex(where: { $0.noteNumber == currentMidiNoteNumber }) {
+                MIDIDatas[index].playing.append(playing)
             } else {
-                let playMIDIData = PlayMIDIData(noteNumber: currentMidiNoteNumber, noteName: noteName, playing: [playing])
-                playMIDIDatas.append(playMIDIData)
+                let playMIDIData = NoteData(noteNumber: currentMidiNoteNumber, noteName: noteName, playing: [playing])
+                MIDIDatas.append(playMIDIData)
             }
-            
-            printPlayMIDIDatas()
         }
+        
+        printMIDIDatas()
     }
     
-    func setStartTime(date:Date) {
+    mutating func setStartTime(date:Date) {
         isPlaying = true
         startTime = date
     }
     
-    func setEndTime(date:Date) {
+    mutating func setEndTime(date:Date) {
         isPlaying = false
         startTime = nil
     }
     
-    func nowPlaying(date:Date) -> [PlayMIDIData] {
+    func nowPlaying(date:Date) -> [NoteData] {
         if (!isPlaying) {
             return []
         }
         
-        var resultPlayMIDIDatas: [PlayMIDIData] = []
+        var resultMIDIDatas: [NoteData] = []
         
         // 入力されたDateがstartTime+onsetTimeからDurationの間に存在しているかを確認
-        for playMIDIData in playMIDIDatas {
+        for midiData in MIDIDatas {
             var playing: [Playing] = []
-            for play in playMIDIData.playing {
+            for play in midiData.playing {
                 if let startTime = startTime {
                     if startTime.timeIntervalSince1970 + play.onsetTime <= date.timeIntervalSince1970 &&
-                       startTime.timeIntervalSince1970 + play.onsetTime + play.duration >= date.timeIntervalSince1970 {
+                        startTime.timeIntervalSince1970 + play.onsetTime + play.duration >= date.timeIntervalSince1970 {
                         playing.append(play)
                     }
                 }
             }
             if playing.count > 0 {
-                resultPlayMIDIDatas.append(PlayMIDIData(noteNumber: playMIDIData.noteNumber, noteName: playMIDIData.noteName, playing: playing))
+                resultMIDIDatas.append(NoteData(noteNumber: midiData.noteNumber, noteName: midiData.noteName, playing: playing))
             }
         }
         
-        return resultPlayMIDIDatas
+        return resultMIDIDatas
     }
     
-    func getPlayMIDIDatas() -> [PlayMIDIData] {
-        return playMIDIDatas
+    func getMIDIDatas() -> [NoteData] {
+        return MIDIDatas
     }
     
-    func printPlayMIDIDatas() {
-        for playMIDIData in playMIDIDatas {
+    func printMIDIDatas() {
+        for playMIDIData in MIDIDatas {
             print("midiNoteNumber: \(playMIDIData.noteNumber)\t noteName: \(playMIDIData.noteName)")
             for playing in playMIDIData.playing {
                 // end time は 小数点 4桁で四捨五入
