@@ -9,8 +9,8 @@
 ## 全体画面
 ![全体画面](https://img.esa.io/uploads/production/attachments/21734/2024/08/23/148413/20dd3777-21dd-4390-9120-bf1861f47bec.png)
 
-## 全体画面
-![全体画面](https://img.esa.io/uploads/production/attachments/21734/2024/08/23/148413/88c404c4-a507-48ba-8652-905ab7d0dd63.png)
+## 起動時の画面
+![起動時の画面](https://img.esa.io/uploads/production/attachments/21734/2024/08/23/148413/88c404c4-a507-48ba-8652-905ab7d0dd63.png)
 
 ## 右側のリスト
 楽曲リストと楽器リストからなる
