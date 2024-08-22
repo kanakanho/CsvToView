@@ -13,7 +13,7 @@ struct CsvToViewApp: App {
         WindowGroup {
             ContentView()
         }
-
+        
         ImmersiveSpace(id: "ImmersiveSpace") {
             ImmersiveView()
         }
